@@ -50,6 +50,7 @@ public class ¹Ýº¹¹®_for {
 			}
 			
 		}
+		System.out.println();
 	}
 
 }

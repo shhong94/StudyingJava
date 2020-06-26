@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="20200622- 자바제어문(조건문)/src"/>
+	<classpathentry kind="src" path="20200623-변수연산자정리문제/src"/>
+	<classpathentry kind="src" path="20200623-자바제어문(조건문)/src"/>
+	<classpathentry kind="src" path="20200624-자바제어문(다중조건문)/src"/>
+	<classpathentry kind="src" path="20200625-자바제어문(for)/src"/>
+	<classpathentry kind="src" path="20200625-자바제어문(for)2/src"/>
+	<classpathentry kind="src" path="테스트/src"/>
+	<classpathentry kind="src" path="Practice/src"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
