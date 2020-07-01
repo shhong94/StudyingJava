@@ -25,9 +25,9 @@ public class 배열_선택정렬 {
 		// 선택 정렬 내림차순
 		for(int i = 0; i < arr.length-1; i++) {			// i는 0부터 시작
 			for(int j = i+1; j < arr.length; j++) {		// j는 i 뒤부터 시작(j=i+1)
-				if(arr[i] > arr[j]) {
-					int tmp = arr[i];
-					arr[i] = arr[j];
+				if(arr[i] > arr[j]) {					// j<arr.length 의 의미
+					int tmp = arr[i];					// i가 j를 비교하는 횟수는 4회.
+					arr[i] = arr[j];					// 배열 arr의 인덱스는 4까지이므로 j는 arr.lenght(4)까지 증가
 					arr[j] = tmp;
 				}
 			}

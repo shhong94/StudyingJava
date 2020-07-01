@@ -35,7 +35,7 @@ public class 자바배열_용도3 {
 		
 		// 결과 출력
 		for(int i = 0; i < 16; i++) {
-			if(i % 4 == 0 && i != 0) {
+			if(i % 4 == 0 && i != 0) {		// i != 0은 i가 0이 아닐 때(처음 사이클)을 뜻함.
 				System.out.println(" ");
 			}
 			System.out.println(binary[i]);

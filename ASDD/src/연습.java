@@ -6,11 +6,33 @@
 import java.util.*;
 public class 연습 {
 	public static void main(String[] args) {
-		// 변수1 배열1
-		int input;
-		int[] binary = new int[16];
-		int index = 15;
+		// 배열 생성
+		int[] arr = new int[5];
 		
+		// 난수 주입
+		for(int i = 0; i < arr.length; i++) {
+			arr[i] = (int)(Math.random()*100)+1;
+		}
 		
+		// 정렬 전 출력
+		for(int i : arr) {
+			System.out.print(i + " ");
+		}
+		
+		// 선택 정렬
+		for(int i = 0; i < arr.length-1; i++) {
+			for(int j = i+1; j < arr.length; j++) {
+				if(arr[i] > arr[j]) {
+					int tmp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = tmp;
+				}
+			}
+		}
+		
+		System.out.println("\n정렬 후");
+		for(int i : arr) {
+			System.out.print(i + " ");
+		}
 	}
 }
