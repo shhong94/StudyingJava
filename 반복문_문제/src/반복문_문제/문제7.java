@@ -33,7 +33,7 @@ public class 문제7 {
 		// 변수
 		int user2 = 0;
 		
-		// 반복문 + 입력값 받기
+		// 반복문
 		while(true) {
 			System.out.print("정수 입력 : ");
 			user2 = scan.nextInt();
