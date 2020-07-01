@@ -34,6 +34,8 @@ public class 자바배열 {
 		 *  총 일수 % 7 = 요일 계산 가능
 		 */
 		
+		
+		
 		// 1. 전 년도까지의 총 일수
 		// 윤년 : 4년마다, 400년마다 윤년 / 100년마다 윤년 제외
 		int total = ((year-1) * 365) + ((year-1) / 4) - ((year-1) / 100) + ((year-1) / 400);
@@ -61,7 +63,24 @@ public class 자바배열 {
 			total += lastday[i];
 		}
 		
-		// 요일
+		// 요일 구하기
+		// 배열이 아니라 switch문을 쓰게 되면 소스량이 많아짐!
+		int week= total % 7;
+		char[] strWeek = {'일', '월', '화', '수', '목', '금', '토'};
+		System.out.println(strWeek[week] + "요일입니다");
+		/*
+		 *  switch (week){
+		 *  case 0:
+		 *  	week = '일';
+		 *  	break;
+		 *  case 1:
+		 *  ....
+		 *  ...
+		 *  ..
+		 *  .
+		 * 	
+		 *  }
+		 */
 		
 		
 		
