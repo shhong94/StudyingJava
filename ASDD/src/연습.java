@@ -16,35 +16,9 @@
 
 public class 연습 {
 	public static void main(String[] args) {
-		
-	// 5행 5열의 배열
-		int[][] arr = new int[5][5];
-		
-		
-	//반복문
-	// i와 j가 짝수 || i와 j가 홀수
-		int k = 1;
-		for(int i = 0; i < 5; i++) {
-			for(int j = 0; j < 5; j++) {
-				if((i % 2 == 0 && j % 2 == 0) || (i % 2 != 0 && j % 2 != 0)) {
-					arr[i][j] = k;
-					k++;
-				}
-			}
+		int sum = 0;
+		for(int i = 1; i <= 10; i++) {
+			i
 		}
-		
-	
-	// 출력
-		for(int i = 0; i < 5; i++) {
-			for(int j = 0; j < 5; j++) {
-				if(arr[i][j] == 0) {
-					System.out.print("\t");
-				}
-				else {
-					System.out.print(arr[i][j] + "\t");
-				}
-			}
-			System.out.println("\t");
-		}
-		}
+	}
 }
