@@ -1,50 +1,29 @@
 /*
- * 		0		1		2		3		4
+ * 	중복 체크
  * 
- *  ==============================================
- * 		1				2				3				0
- * 	==============================================
- * 				4				5						1	
- * 	==============================================
- * 		6				7				8				2
- * 	==============================================
- * 				9				10						3
- * 	==============================================
- * 		11				12				13				4
- * 	==============================================	
- */
-
+ * 	
+ * 
+ * 	
+*/
+import java.util.*;
 public class 연습 {
 	public static void main(String[] args) {
+		int A = 0;
+        int B = 0;
+        Scanner scan = new Scanner(System.in);
+        System.out.print("A를 입력하세요 : ");
+        A = scan.nextInt();
+        System.out.print("B를 입력하세요 : ");
+        B = scan.nextInt();
+        
+        System.out.print("A + B = " + (A + B));
 		
-	// 5행 5열의 배열
-		int[][] arr = new int[5][5];
 		
 		
-	//반복문
-	// i와 j가 짝수 || i와 j가 홀수
-		int k = 1;
-		for(int i = 0; i < 5; i++) {
-			for(int j = 0; j < 5; j++) {
-				if((i % 2 == 0 && j % 2 == 0) || (i % 2 != 0 && j % 2 != 0)) {
-					arr[i][j] = k;
-					k++;
-				}
-			}
-		}
 		
-	
-	// 출력
-		for(int i = 0; i < 5; i++) {
-			for(int j = 0; j < 5; j++) {
-				if(arr[i][j] == 0) {
-					System.out.print("\t");
-				}
-				else {
-					System.out.print(arr[i][j] + "\t");
-				}
-			}
-			System.out.println("\t");
-		}
-		}
+		
+		
+		
+		
+	}
 }
