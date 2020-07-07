@@ -16,8 +16,7 @@
 
 public class ¿¬½À {
 	public static void main(String[] args) {
-		int[] arr = {0, 1, 2};
-		
-		System.out.println(arr.length);
+		int a = 450;
+		System.out.println((a / 10) % 10);
 	}
 }
