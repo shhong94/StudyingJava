@@ -13,10 +13,19 @@
  * 		11				12				13				4
  * 	==============================================	
  */
-
+import java.util.*;
 public class 연습 {
 	public static void main(String[] args) {
-		int a = 450;
-		System.out.println((a / 10) % 10);
+	    Scanner scan = new Scanner(System.in);
+	    System.out.print("i입력 : ");
+	    int i = scan.nextInt();        
+	    for(i = 1; i <= 5; i++){
+	    	System.out.print("a입력 : ");
+	        int a = scan.nextInt();
+	        System.out.print("b입력 : ");
+	        int b = scan.nextInt();
+	        System.out.println(a + b);
+	    }
+		
 	}
 }
