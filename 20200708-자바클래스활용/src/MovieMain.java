@@ -21,7 +21,8 @@ public class MovieMain extends JFrame implements ActionListener{
 	JPanel pan = new JPanel();
 	
 	
-	MovieMain(){
+	// 클래스명과 이름이 같음. 리턴형이 없음.
+	MovieMain(){	// 생성자 함수 (변수의 초기값 부여. 메모리에 저장시 반드시 호출)
 		// 인스턴스 생성
 		b1 = new JButton("현재상영영화");
 		b2 = new JButton("개봉예정영화");
