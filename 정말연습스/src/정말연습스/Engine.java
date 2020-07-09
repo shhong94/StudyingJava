@@ -1,64 +1,19 @@
 package 정말연습스;
-
-import java.util.Scanner;
-
+import java.util.*;
 public class Engine {
-	static boolean onOff;
-	static String x;
+	int enginePower;
 	
-	static String start() {	// ★★★★★★★★★★★★★★★★★★★★★
+	public int onOffEngine() {		
+		int onOff = 0;
 		Scanner scan = new Scanner(System.in);
-		System.out.print("엔진을 켭니까 (y/n) : ");
-		String x = scan.next();
-		return x;
-	}
-	static boolean isStart() {	// ★★★★★★★★★★★★★★★★★★★★★
-		if(x == "n") {
-			System.out.println("시동을 걸지 않습니다");
-			onOff = false;
+		System.out.print("엔진 시동을 켭니까? : ");
+		String input = scan.next();
+		if(input.equals("y")) {
+			onOff = 1;
 		}
-		else if(x == "y") {
-			System.out.println("시동을 겁니다");
-			onOff = true;
+		else if(input.equals("n")) {
+			onOff = 0;
 		}
 		return onOff;
 	}
 }
-	
-//====================================================================================
-class Gauge {
-	static int speed;
-	
-	static int setspeed() {				// ★★★★★★★★★★★★★★★★★★★★★
-		if(Engine.isStart()) {
-			Scanner scan = new Scanner(System.in);
-			System.out.print("속도 입력 : ");
-			speed = scan.nextInt();
-			
-			informSpeed(speed);
-		}
-		return speed;
-	}
-	static void informSpeed(int speed) {	// ★★★★★★★★★★★★★★★★★★★★★
-		System.out.println(speed + "의 속도로 달리고 있습니다");
-	}
-	
-}
-//====================================================================================
-class Camera {
-	String capture;
-	
-	static void watch(int speed) {	//★★★★★★★★★★★★★★★★★★★★★
-		if(speed > 100) {
-			System.out.println("감시카메라 포착");
-			Engine.onOff = false;
-			
-		}
-		else {
-			Gauge.informSpeed(speed);
-		}
-	}
-}
-//=====================================================================================
-
-
