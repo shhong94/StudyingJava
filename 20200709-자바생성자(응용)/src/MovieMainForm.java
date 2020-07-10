@@ -1,8 +1,11 @@
 import javax.swing.*;		// À©µµ¿ì °ü·Ã						}
+import javax.swing.border.LineBorder;
+
 import java.awt.*;			// ·¹ÀÌ¾Æ¿ô(È­¸é¹èÄ¡)				}- ÀÚ¹Ù¿¡¼­ Áö¿øÇÏ´Â À©µµ¿ìÀÇ ¸ðµç ±â´É
 import java.awt.event.*;	// ¹öÆ°, ÅØ½ºÆ® µîÀÇ ÀÌº¥Æ® °ü·Ã		}
+import java.net.URL;
 
-public class MovieMainForm extends JFrame implements ActionListener{		// ÀÚ¹Ù¿¡¼­ »ó¼ÓÀº ÇÑ°³¸¸ °¡´É(´ÜÀÏ »ó¼Ó)
+public class MovieMainForm extends JFrame implements ActionListener, MouseListener{		// ÀÚ¹Ù¿¡¼­ »ó¼ÓÀº ÇÑ°³¸¸ °¡´É(´ÜÀÏ »ó¼Ó)
 	// À©µµ¿ì Ã¢ÀÇ ¹Ù ÀÎ½ºÅÏ½º »ý¼º
 	JMenuBar bar = new JMenuBar();
 	// ¸Þ´º¹Ù ¾È¿¡ µé¾î°¥ ¸ñ·Ï »ý¼º
@@ -15,6 +18,10 @@ public class MovieMainForm extends JFrame implements ActionListener{		// ÀÚ¹Ù¿¡¼
 	MovieList ml = new MovieList();
 	MovieDetail md = new MovieDetail();
 	MovieFind mf = new MovieFind();
+	
+	
+	int curpage = 1; 		// ÇöÀçÆäÀÌÁö º¯¼ö ÃÊ±âÈ­
+	int totalpage = 194;	// ÃÖÁ¾ÆäÀÌÁö º¯¼ö ÃÊ±âÈ­
 	
 	// ÇÁ·Î±×·¥ ½ÇÇàÇÏ¸é "ÀÚµ¿À¸·Î" À©µµ¿ì¸¦ ¶ç¿ì±â À§ÇØ »ý¼ºÀÚ »ç¿ë
 	MovieMainForm () {
@@ -44,8 +51,46 @@ public class MovieMainForm extends JFrame implements ActionListener{		// ÀÚ¹Ù¿¡¼
 		home.addActionListener(this);
 		find.addActionListener(this);
 		exit.addActionListener(this);
+		
+		ml.b1.addActionListener(this);	// ÀÌÀü ¹öÆ°
+		ml.b2.addActionListener(this);	// ´ÙÀ½ ¹öÆ°
+		
+		// Æ÷½ºÅÍ ÀÐ¾î¿À´Â ¸Þ¼Òµå ½ÇÇà
+		moviePrint(1);
+		
+		// ¸¶¿ì½º ÀÌº¥Æ®¸¦ »ç¿ëÇÏ°Ú´Ù°í ¼±¾ð
+		for(int i = 0; i < 2; i++) {
+			for(int j = 0; j < 5; j++) {
+				ml.movie[i][j].addMouseListener(this);
+			}
+		}
 	}
 	
+	// Æ÷½ºÅÍ ÀÐ¾î¿À´Â ¸Þ¼Òµå
+	void moviePrint(int page) {
+		MovieVO[] movies = MovieManager.movieListData(page);
+		int k = 0;
+		for(MovieVO vo : movies) {
+			try {
+				// Æ÷½ºÅÍ ÀÐ¾î¿À±â
+				URL url = new URL(vo.poster);
+				Image img = getImage(new ImageIcon(url), ml.movie[0][0].getWidth(), ml.movie[0][0].getHeight());
+				ml.movie[k/5][k%5].setIcon(new ImageIcon(img));
+				k++;
+			}catch(Exception ex) {}
+		}
+		// ÆäÀÌÁö Ç¥½Ã
+		ml.pLa.setText(curpage + " page / " + totalpage + " pages");
+	}
+	
+	// ÀÌ¹ÌÁö Ãà¼Ò ¸Þ¼Òµå
+	static Image getImage(ImageIcon ii,int w,int h)
+    {
+    	Image dimg = ii.getImage().getScaledInstance(w, h,
+    	        Image.SCALE_SMOOTH);
+    	return dimg;
+    }
+
 	public static void main(String[] args) throws Exception {
 		UIManager.setLookAndFeel("com.jtattoo.plaf.hifi.HiFiLookAndFeel");
 		new MovieMainForm();	// »ý¼ºÀÚ´Â ¹Ýµå½Ã new¸¦ ºÙ¿©¾ß ÇÒ´çµÊ 
@@ -61,8 +106,61 @@ public class MovieMainForm extends JFrame implements ActionListener{		// ÀÚ¹Ù¿¡¼
 		else if(e.getSource() == find) {
 			card.show(getContentPane(), "MF");
 		}
-		if(e.getSource() == exit) {
+		else if(e.getSource() == exit) {
 			System.exit(0);
+		}
+		else if(e.getSource() == ml.b1) {
+			if(curpage > 1) {
+				curpage--;
+				moviePrint(curpage);
+			}
+		}
+		else if(e.getSource() == ml.b2) {
+			if(curpage < totalpage) {
+				curpage++;
+				moviePrint(curpage);
+			}
+		}
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {		// ¸¶¿ì½º ²Ú ´©¸£°í µå·¡±×
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {		// µå·¡±× ÈÄ ³ùÀ» ¶§
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {		// ¸¶¿ì½º¸¦ À§¿¡ ¿Ã·ÇÀ» ¶§
+		for(int i = 0; i < 2; i++) {
+			for(int j = 0; j < 5; j++) {
+				if(e.getSource() == ml.movie[i][j]) {
+					LineBorder line = new LineBorder(Color.yellow, 5);
+					ml.movie[i][j].setBorder(line);
+				}
+			}
+		}
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {			// ¸¶¿ì½º Ä¡ŸmÀ» ¶§
+		for(int i = 0; i < 2; i++) {
+			for(int j = 0; j < 5; j++) {
+				ml.movie[i][j].setBorder(null);
+			}
 		}
 		
 	}
