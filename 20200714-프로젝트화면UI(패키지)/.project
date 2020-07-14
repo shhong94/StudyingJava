@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>자바제어문_문제</name>
+	<name>20200714-프로젝트화면UI(패키지)</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>20200713-프로젝트화면UI</name>
-			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/javaStudy/20200713-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%99%94%EB%A9%B4UI</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
