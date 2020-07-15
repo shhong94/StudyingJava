@@ -1,8 +1,8 @@
 package com.sist.client;
 
+import com.sist.common.*;
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
 public class RecipeMainForm extends JFrame implements ActionListener {
@@ -10,10 +10,14 @@ public class RecipeMainForm extends JFrame implements ActionListener {
 	CardLayout card = new CardLayout();
 	Login login = new Login();
 	JoinForm join = new JoinForm();
+	RecipeManager rm = new RecipeManager();
 	
 // 持失切 ============================================================================ 持失切
 	public RecipeMainForm() {
 		setLayout(card);
+		
+		add("RM", rm);
+		
 		add("LOGIN", login);
 		add("JOIN", join);
 
