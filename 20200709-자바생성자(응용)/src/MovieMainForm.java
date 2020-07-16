@@ -43,7 +43,7 @@ public class MovieMainForm extends JFrame implements ActionListener, MouseListen
 		setJMenuBar(bar);		
 		
 		// 윈도우 크기 설정
-		setSize(1300, 1000);
+		setSize(1600, 900);
 		
 		// 윈도우 창 띄우기 true
 		setVisible(true);
