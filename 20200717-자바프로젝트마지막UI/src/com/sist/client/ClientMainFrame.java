@@ -48,6 +48,12 @@ public class ClientMainFrame extends JFrame implements ActionListener{
 //		UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
 		new ClientMainFrame();
 	}
+	static Image getImage(ImageIcon ii,int w,int h)
+    {
+    	Image dimg = ii.getImage().getScaledInstance(w, h,
+    	        Image.SCALE_SMOOTH);
+    	return dimg;
+    }
 
 
 	@Override

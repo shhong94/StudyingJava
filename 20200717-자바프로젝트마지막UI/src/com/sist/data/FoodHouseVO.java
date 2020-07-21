@@ -15,7 +15,14 @@ public class FoodHouseVO {
 	private int good;
 	private int soso;
 	private int bad;
+	private String review;
 	
+	public String getReview() {
+		return review;
+	}
+	public void setReview(String review) {
+		this.review = review;
+	}
 	public int getNo() {
 		return no;
 	}
