@@ -14,7 +14,7 @@ public class MovieManager {
 			Elements link = doc.select(".box-contents a");							// 영화별 상세페이지 고르기
 			
 			int j = 0;		// 여러 a태그 중에서 필요한 태그는 짝수에 위치하기  때문에 변수 j 선언
-			for(int i = 0; i < 11; i++) {
+			for(int i = 0; i < 7; i++) {
 				movies[i] = new MovieVO();
 //				System.out.println("http://www.cgv.co.kr" + link.get(j).attr("href"));	
 				Document doc2 = Jsoup.connect("http://www.cgv.co.kr" + link.get(j).attr("href")).get();
