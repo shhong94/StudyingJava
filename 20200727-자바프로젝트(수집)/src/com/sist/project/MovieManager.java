@@ -53,6 +53,7 @@ public class MovieManager {
 	    		// 사이트 연결해서 데이터를 한번에 읽기 => 메모리 저장 => Document
 	    		Document doc=Jsoup.connect("https://movie.daum.net/boxoffice/yearly").get();
 	    	    Elements link=doc.select("a.name_movie");// css
+	    	    
 	    	    for(int j=0;j<link.size();j++)	//====================================================================================
 	    	    {
 	    	    	// class Elements extends ArrayList
