@@ -11,6 +11,7 @@ public class SteamVO {
 	private String review;			// 평가
 	private String company;			// 배급사
 	private String spec;			// 요구사양
+	
 	public int getCno() {
 		return cno;
 	}
