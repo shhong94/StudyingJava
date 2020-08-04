@@ -12,13 +12,16 @@ public class CartoonManager {
 	public void Cartoon() {
 		ArrayList<CartoonVO> list1 = new ArrayList<CartoonVO>();
 		
-		String day = "sun";
-		int num = 121;
+		String day = "mon";
+		int num = 1;
 		
 		for(int i = 1; i <= 20; i++) {
 			try {
 				Document doc = Jsoup.connect("https://comic.naver.com/webtoon/weekdayList.nhn?week=sun").get();
-					
+				Elements link = doc.select("ul.img_list .thumb a");
+				
+				String url = "https://comic.naver.com" + link.get(i).attr("href");
+				Document doc2 = Jsoup.connect(url).get();
 				
 				Element title = doc.select(".img_list dl dt a").get(i);			// 제목
 				System.out.println(title.text());
@@ -28,7 +31,10 @@ public class CartoonManager {
 				System.out.println(star.text());
 				Element photo = doc.select("ul.img_list .thumb img").get(i);		// 사진
 				System.out.println(photo.attr("src"));
-//				System.out.println("=====================================================================");
+				
+				Element description = doc2.select(".comicinfo .detail p").get(0);					// 만화설명 ok
+				System.out.println(description.text());
+				System.out.println("=====================================================================");
 				
 				
 				String data = day + "|" + num + "|" + photo.attr("src") + "|" +
@@ -69,12 +75,12 @@ public class CartoonManager {
 					
 //					Element photo = doc2.selectFirst(".comicinfo .thumb img");		// 사진 ok
 //					System.out.println(photo.attr("src"));
-					Element title = (doc2.selectFirst(".comicinfo .detail h2"));	// 제목
-					System.out.println(title.text());
+//					Element title = (doc2.selectFirst(".comicinfo .detail h2"));	// 제목
+//					System.out.println(title.text());
 //					Elements author = doc.select("");			// 작가
 //					System.out.println(author.text());
-//					Element description = doc2.select(".comicinfo .detail p").get(0);					// 만화설명 ok
-//					System.out.println(description.text());
+					Element description = doc2.select(".comicinfo .detail p").get(0);					// 만화설명 ok
+					System.out.println(description.text());
 //					Elements genre = doc2.select(".detail_info .genre");				// 장르 ok
 //					System.out.println(genre.text());
 					
